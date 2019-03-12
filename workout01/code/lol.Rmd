@@ -32,3 +32,47 @@ ggplot(data = iguodala_data) + annotation_custom(court_image, -250, 250, -50, 42
 dev.off()
 ```
 
+```{r}
+green_data <- player_data[player_data$name == 'Draymond Green', ]
+
+pdf(file = "../images/draymond-green-shot-chart.pdf", width = 6.5, height = 5)
+ggplot(data = green_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Draymond Green (2016 season)') + theme_minimal()
+dev.off()
+```
+
+```{r}
+durant_data <- player_data[player_data$name == 'Kevin Durant', ]
+
+pdf(file = "../images/kevin-durant-shot-chart.pdf", width = 6.5, height = 5)
+ggplot(data = durant_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Kevin Durant (2016 season)') + theme_minimal()
+dev.off()
+```
+
+```{r}
+thompson_data <- player_data[player_data$name == 'Klay Thompson', ]
+
+pdf(file = "../images/klay-thompson-shot-chart.pdf", width = 6.5, height = 5)
+ggplot(data = thompson_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Klay Thompson (2016 season)') + theme_minimal()
+dev.off()
+```
+
+```{r}
+curry_data <- player_data[player_data$name == 'Stephen Curry', ]
+
+pdf(file = "../images/stephen-curry-shot-chart.pdf", width = 6.5, height = 5)
+ggplot(data = curry_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Stephen Curry (2016 season)') + theme_minimal()
+dev.off()
+```
+
+```{r}
+pdf(file = "../images/gsw-shot-charts.pdf", width = 8, height = 7)
+ggplot(data = player_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Charts: GSW (2016 season)') + facet_wrap(~ name)
+dev.off()
+```
+
+```{r}
+png(filename = "../images/gsw-shot-charts.png", width = 8, height = 7, units = "in", res = 1000)
+ggplot(data = player_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Charts: GSW (2016 season)') + facet_wrap(~ name)
+dev.off()
+```
+

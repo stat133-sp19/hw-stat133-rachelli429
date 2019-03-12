@@ -1,8 +1,8 @@
 ##################################################
-# Title: "Make Shots Charts Script"
+# Title: "Make Shots Data Script"
 # Description: "script to create shot charts"
-# Input: ""
-# Output: ""
+# Input: "player data sets: andre-iguodala.csv, draymond-green.csv, kevin-durant.csv, klay-thompson.csv, stephen-curry.csv"
+# Output: "shots-data.csv, shots-data-summary.txt"
 ##################################################
 
 col_types <- c("factor", "factor", "factor", "factor", "integer", "integer", "factor", "factor", "factor", "integer", "factor", "integer", "integer")
@@ -29,7 +29,7 @@ iguodala$minutes <- as.integer(iguodala$minutes)
 iguodala$period <- as.factor(iguodala$period)
 
 sink(file = '../output/andre-iguodala-summary.txt')
-summary(iguodala)
+print(summary(iguodala))
 sink()
 
 green$shot_made_flag <- as.character(green$shot_made_flag)
@@ -43,7 +43,7 @@ green$minutes <- as.integer(green$minutes)
 green$period <- as.factor(green$period)
 
 sink(file = "../output/draymond-green-summary.txt")
-summary(green)
+print(summary(green))
 sink()
 
 durant$shot_made_flag <- as.character(durant$shot_made_flag)
@@ -57,7 +57,7 @@ durant$minutes <- as.integer(durant$minutes)
 durant$period <- as.factor(durant$period)
 
 sink(file = "../output/kevin-durant-summary.txt")
-summary(durant)
+print(summary(durant))
 sink()
 
 thompson$shot_made_flag <- as.character(thompson$shot_made_flag)
@@ -71,7 +71,7 @@ thompson$minutes <- as.integer(thompson$minutes)
 thompson$period <- as.factor(thompson$period)
 
 sink(file = "../output/klay-thompson-summary.txt")
-summary(thompson)
+print(summary(thompson))
 sink()
 
 curry$shot_made_flag <- as.character(curry$shot_made_flag)
@@ -85,7 +85,7 @@ curry$minutes <- as.integer(curry$minutes)
 curry$period <- as.factor(curry$period)
 
 sink(file = "../output/stephen-curry-summary.txt")
-summary(curry)
+print(summary(curry))
 sink()
 
 big_df <- rbind(iguodala, green, durant, thompson, curry)
@@ -97,5 +97,5 @@ write.csv(
 )
 
 sink(file = "../output/shots-data-summary.txt")
-summary(big_df)
+print(summary(big_df))
 sink()

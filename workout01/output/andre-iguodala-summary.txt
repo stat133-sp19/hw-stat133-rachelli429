@@ -1,22 +1,88 @@
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
-null device 
-          1 
+                 team_name  
+ Golden State Warriors:371  
+                            
+                            
+                            
+                            
+                            
+                            
+    game_date    season    period 
+ 3/31/17 : 12   2016:371   1: 81  
+ 3/18/17 : 10              2:111  
+ 11/28/16:  9              3: 85  
+ 2/13/17 :  9              4: 94  
+ 2/2/17  :  9                     
+ 3/28/17 :  9                     
+ (Other) :313                     
+ minutes_remaining
+ Min.   : 0.000   
+ 1st Qu.: 1.000   
+ Median : 4.000   
+ Mean   : 4.582   
+ 3rd Qu.: 8.000   
+ Max.   :11.000   
+                  
+ seconds_remaining  shot_made_flag
+ Min.   : 0.00     shot_no :179   
+ 1st Qu.:10.00     shot_yes:192   
+ Median :27.00                    
+ Mean   :26.75                    
+ 3rd Qu.:41.00                    
+ Max.   :59.00                    
+                                  
+             action_type 
+ Jump Shot         :179  
+ Pullup Jump shot  : 34  
+ Running Layup Shot: 19  
+ Running Dunk Shot : 18  
+ Layup Shot        : 17  
+ Cutting Dunk Shot : 16  
+ (Other)           : 88  
+          shot_type  
+ 2PT Field Goal:210  
+ 3PT Field Goal:161  
+                     
+                     
+                     
+                     
+                     
+ shot_distance  
+ Min.   : 0.00  
+ 1st Qu.: 1.00  
+ Median :18.00  
+ Mean   :13.69  
+ 3rd Qu.:24.00  
+ Max.   :49.00  
+                
+                   opponent  
+ Houston Rockets       : 30  
+ Los Angeles Clippers  : 29  
+ Portland Trail Blazers: 22  
+ Sacramento Kings      : 22  
+ Oklahoma City Thunder : 21  
+ Memphis Grizzlies     : 18  
+ (Other)               :229  
+       x                y         
+ Min.   :-245.0   Min.   :-31.00  
+ 1st Qu.: -65.5   1st Qu.:  2.00  
+ Median :   0.0   Median : 23.00  
+ Mean   :   3.9   Mean   : 73.62  
+ 3rd Qu.: 101.5   3rd Qu.:150.00  
+ Max.   : 238.0   Max.   :497.00  
+                                  
+     name          
+ Length:371        
+ Class :character  
+ Mode  :character  
+                   
+                   
+                   
+                   
+    minutes     
+ Min.   : 4.00  
+ 1st Qu.:14.00  
+ Median :24.00  
+ Mean   :25.63  
+ 3rd Qu.:37.00  
+ Max.   :48.00  
+                

@@ -1,0 +1,96 @@
+                 team_name   
+ Golden State Warriors:4334  
+                             
+                             
+                             
+                             
+                             
+                             
+    game_date     season    
+ 10/28/16:  76   2016:4334  
+ 12/13/16:  75              
+ 11/7/16 :  74              
+ 1/20/17 :  73              
+ 11/16/16:  72              
+ 11/18/16:  72              
+ (Other) :3892              
+ period   minutes_remaining
+ 1:1266   Min.   : 0.000   
+ 2:1066   1st Qu.: 2.000   
+ 3:1215   Median : 5.000   
+ 4: 787   Mean   : 5.412   
+          3rd Qu.: 8.000   
+          Max.   :11.000   
+                           
+ seconds_remaining  shot_made_flag
+ Min.   : 0.00     shot_no :2243  
+ 1st Qu.:13.00     shot_yes:2091  
+ Median :29.00                    
+ Mean   :28.60                    
+ 3rd Qu.:43.75                    
+ Max.   :59.00                    
+                                  
+              action_type  
+ Jump Shot          :2051  
+ Pullup Jump shot   : 521  
+ Layup Shot         : 215  
+ Driving Layup Shot : 160  
+ Step Back Jump shot: 133  
+ Running Layup Shot : 115  
+ (Other)            :1139  
+          shot_type   
+ 2PT Field Goal:2402  
+ 3PT Field Goal:1932  
+                      
+                      
+                      
+                      
+                      
+ shot_distance  
+ Min.   : 0.00  
+ 1st Qu.: 2.25  
+ Median :19.00  
+ Mean   :15.58  
+ 3rd Qu.:25.00  
+ Max.   :71.00  
+                
+                   opponent   
+ Houston Rockets       : 271  
+ Sacramento Kings      : 249  
+ Los Angeles Clippers  : 246  
+ Oklahoma City Thunder : 240  
+ Portland Trail Blazers: 238  
+ Memphis Grizzlies     : 225  
+ (Other)               :2865  
+       x           
+ Min.   :-248.000  
+ 1st Qu.: -56.000  
+ Median :   1.000  
+ Mean   :   7.746  
+ 3rd Qu.:  95.500  
+ Max.   : 246.000  
+                   
+       y        
+ Min.   :-39.0  
+ 1st Qu.: 13.0  
+ Median : 95.0  
+ Mean   :109.4  
+ 3rd Qu.:198.0  
+ Max.   :717.0  
+                
+             name     
+ Andre Iguodala: 371  
+ Draymond Green: 578  
+ Kevin Durant  : 915  
+ Klay Thompson :1220  
+ Stephen Curry :1250  
+                      
+                      
+    minutes    
+ Min.   : 1.0  
+ 1st Qu.:11.0  
+ Median :23.0  
+ Mean   :22.8  
+ 3rd Qu.:33.0  
+ Max.   :48.0  
+               
