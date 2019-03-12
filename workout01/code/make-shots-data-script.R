@@ -1,8 +1,8 @@
 ##################################################
-# Title: "Make Shots Data Script"
-# Description: "script to create csv data flie shot-data.csv that contains the variables for data visualization"
-# Input: "5 csv files: andre-iguodala, draymond-green, kevin-durant, klay-thompson, stephen-curry"
-# Output: "shot.data.csv file"
+# Title: "Make Shots Charts Script"
+# Description: "script to create shot charts"
+# Input: ""
+# Output: ""
 ##################################################
 
 col_types <- c("factor", "factor", "factor", "factor", "integer", "integer", "factor", "factor", "factor", "integer", "factor", "integer", "integer")
@@ -25,6 +25,7 @@ iguodala$shot_made_flag <- as.factor(iguodala$shot_made_flag)
 
 iguodala$period <- as.integer(iguodala$period)
 iguodala$minutes <- iguodala$period * 12 - iguodala$minutes_remaining
+iguodala$minutes <- as.integer(iguodala$minutes)
 iguodala$period <- as.factor(iguodala$period)
 
 sink(file = '../output/andre-iguodala-summary.txt')
@@ -38,6 +39,7 @@ green$shot_made_flag <- as.factor(green$shot_made_flag)
 
 green$period <- as.integer(green$period)
 green$minutes <- green$period * 12 - green$minutes_remaining
+green$minutes <- as.integer(green$minutes)
 green$period <- as.factor(green$period)
 
 sink(file = "../output/draymond-green-summary.txt")
@@ -51,6 +53,7 @@ durant$shot_made_flag <- as.factor(durant$shot_made_flag)
 
 durant$period <- as.integer(durant$period)
 durant$minutes <- durant$period * 12 - durant$minutes_remaining
+durant$minutes <- as.integer(durant$minutes)
 durant$period <- as.factor(durant$period)
 
 sink(file = "../output/kevin-durant-summary.txt")
@@ -64,6 +67,7 @@ thompson$shot_made_flag <- as.factor(thompson$shot_made_flag)
 
 thompson$period <- as.integer(thompson$period)
 thompson$minutes <- thompson$period * 12 - thompson$minutes_remaining
+thompson$minutes <- as.integer(thompson$minutes)
 thompson$period <- as.factor(thompson$period)
 
 sink(file = "../output/klay-thompson-summary.txt")
@@ -77,6 +81,7 @@ curry$shot_made_flag <- as.factor(curry$shot_made_flag)
 
 curry$period <- as.integer(curry$period)
 curry$minutes <- curry$period * 12 - curry$minutes_remaining
+curry$minutes <- as.integer(curry$minutes)
 curry$period <- as.factor(curry$period)
 
 sink(file = "../output/stephen-curry-summary.txt")
@@ -94,4 +99,3 @@ write.csv(
 sink(file = "../output/shots-data-summary.txt")
 summary(big_df)
 sink()
-
