@@ -1,7 +1,6 @@
 ---
-title: "workout01-rachel-li"
+title: "Workout 1"
 author: "Rachel Li"
-date: "3/12/2019"
 output: github_document
 ---
 
@@ -9,22 +8,136 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+library(dplyr)
 ```
 
-## Including Plots
+# Introduction 
 
-You can also embed plots, for example:
+clear and captivating introduction that grabs the reader's attention, describe purpose of report 
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+This report will look at the shooting statistics of 5 GSW players - Andre Iguodala, Draymond Green, Kevin Durant, Klay Thompson, and Stephen Curry. The report will rank the players based on their current performance and suggest ways to improve performance. 
+
+# Background 
+
+The Golden State Warriors are a basketball team that is part of the National Basketball Association (NBA). They are currently 1st in the NBA Western Conference, one of two conferences that makes up the NBA league. The Western Conference is made up of 15 teams located in the western half of the United States. The Golden State Warriors have won 7 Western Conference championships and are the defending champions. 
+
+# Motivation 
+
+Data provides empirical evidence of what has worked in the past and players' behavior on the court, which can be analyzed for patterns. Data analytics in sports is important in order to understand the factors that affect performance and each player's strengths in order to develop strategies to maximize performance and efficiency. 
+
+# Data
+
+```{r}
+column_types <- c("factor", "factor", "factor", "factor", "factor", "integer", "integer", "factor", "factor", "factor", "integer", "factor", "integer", "integer", "factor", "integer")
+shots_data <- read.csv(file = "../data/shots-data.csv", colClasses = column_types, row.names = 1)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+```{r}
+shots_data
+```
+
+# Analysis
+
+Below are scatterplots of the locations of the shots that each player made on the basketball court. There is one scatterplot for each player, and each dot represents one shot. The color of the dot indicates whether the player made that shot or not: turquoise means they made the shot, red means they did not.
+
+```{r out.width='80%', echo = FALSE, fig.align = 'center'}
+knitr::include_graphics('../images/gsw-shot-charts.png')
+```
+
+**2PT Effective Shooting % by Player**
+
+Below is a table of the 2 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
+
+```{r}
+effective_2pt <- shots_data %>% filter(shot_type == "2PT Field Goal") %>% group_by(name) %>% summarise(total = length(shot_type), made = sum(shot_made_flag == "shot_yes"), perc_made_2 = made / total) %>% arrange(desc(perc_made_2))
+effective_2pt
+```
+
+**3PT Effective Shooting % by Player**
+
+Below is a table of the 3 PT Field Goal effective shooting percentage by player, arranged in descending order by percentage.
+
+```{r}
+effective_3pt <- shots_data %>% filter(shot_type == "3PT Field Goal") %>% group_by(name) %>% summarise(total = length(shot_type), made = sum(shot_made_flag == "shot_yes"), perc_made_3 = made / total) %>% arrange(desc(perc_made_3))
+effective_3pt
+```
+
+**Effective Shooting % by Player**
+
+Below is a table of the Overall (both 2PT and 3PT Field Goals) effective shooting percentage by player, arranged in descending order by percentage.
+
+```{r}
+effective_overall <- shots_data %>% group_by(name) %>% summarise(total = length(shot_type), made = sum(shot_made_flag == "shot_yes"), perc_made = made / total) %>% arrange(desc(perc_made))
+effective_overall
+```
+
+# Discussion 
+
+From these 3 tables, we can see that players are more likely to make 2 point shots than 3 point shots, which makes intuitive sense because 3 point shots are made farther from the basket. 2 point field goals are made from an an average of 7.63 feet away from the basket, and 3 point field goals are made from an average of 25.48 feet away from the basket (see calculations below).
+
+```{r}
+shots_data %>% filter(shot_type == '2PT Field Goal') %>% summarise(avg_distance = mean(shot_distance))
+```
+
+```{r}
+shots_data %>% filter(shot_type == '3PT Field Goal') %>% summarise(avg_distance = mean(shot_distance))
+```
+
+The table below places the overall percentage of shots made, percentage of 2 point shots made, and percentage of 3 point shots made next to each other. The difference between the percent of 2 point and 3 point shots made is also calculated in the `diff` column. 
+
+```{r}
+merged <- merge(effective_2pt, effective_3pt, by = "name")
+merge(merged, effective_overall, by = "name") %>% select(name, total, made, perc_made, perc_made_2, perc_made_3) %>% mutate(diff = perc_made_2 - perc_made_3)
+```
+
+I will now analyze each player individually to determine a ranking.
+
+### Andre Iguodala
+
+Andre Iguodala has the highest percentage of 2 point shots made (0.64), but also the highest difference between 2 and 3 point shots (0.28). His total percentage made is second highest (0.52). Iguodala is not the best player since he is less consistent across 2 and 3 point shots, but is still a better shooter than Green because his percentage of overall, 2 point, and 3 point shots made are higher. He also takes the least number of shots in the first place. Iguodala should make more 2 point shots and leave the 3 point shots to his teammates. 
+
+### Draymond Green 
+
+Draymond Green has the lowest percentage of overall shots made (0.42), 2 point shots made (0.49), and 3 point shots made (0.32). Green is the overall weakest player among the 5 due to being consistently ranked last and having the lowest percentage. Green should be given less playing time, but if he were to play, he should focus on 2 point shots rather than 3 point shots. 
+
+### Kevin Durant
+
+Kevin Durant has the highest percentage of shots made (0.54) overall and the second highest percentage of 2 point shots made (0.61). However, he has a large difference between 2 and 3 point shots (0.22). His percentage of 3 point shots made is average. Durant is already doing well, but in order to improve performance even further, he should aim to make more 2 point shots rather than 3 point shots. Durant is only ranked second because he has a high difference between 2 and 3 point shots, but having the highest percentage of shots made overall is still helpful.
+
+### Klay Thompson 
+
+Klay Thompson has the lowest difference between his 2 and 3 point shots (0.09), making him the most consistent shooter across 2 and 3 point shots. He has the highest percent of 3 point shots made but the second lowest percent of 2 point shots made. To optimize performance, he should focus on making 3 point shots rather than 2 point shots. Klay Thompson is the strongest player because he is the most consistent. Consistency is very important because players sometimes do not have control over where in the court they have to take a shot from, so a player who can shoot from anywhere and perform about the same is very valuable. 
+
+### Stephen Curry 
+
+Stephen Curry has the second lowest difference between his 2 point and 3 point shots. Although his overall percentage of shots made (0.47) is relatively low, he is more consistent across 2 and 3 point shots. His percentage of 2 point shots made is average while his percentage of 3 point shots is relatively high, so he should also focus on making 3 point shots. He is ranked in the middle due to having a low percentage of overall shots made. 
+
+Assigning a number to each percentage and difference in the table would produce the same ranking. 5 corresponds to the best score for that category (highest percentage of shots made, lowest difference), and 1 corresponds to the worst.
+
+* Andre Iguodala: 4 + 5 + 2 + 1 = 12
+* Draymond Green: 1 + 1 + 1 + 3 = 6
+* Kevin Durant: 5 + 4 + 3 + 2 = 14
+* Klay Thompson: 3 + 2 + 5 + 5 = 15
+* Stephen Curry: 2 + 3 + 4 + 4 = 13
+
+Curry and Thompson had the highest number of total shots taken and made shots, larger than the others by a significant amount, as well as the lowest difference between 2 point and 3 point shots. This could be because they were given more playing time due to being more reliable shooters. Looking at the shot charts, we can see that Curry and Thompson were able to make shots from slightly greater distances from the basket than other players.  
+
+# Conclusions 
+
+A number of conclusions can be drawn from this analysis. First, we can create a ranking of the players based on their current performance.
+
+### Ranking 
+
+1. Klay Thompson
+2. Kevin Durant
+3. Stephen Curry
+4. Andre Iguodala
+5. Draymond Green
+
+We can also conclude with recommendations for the future: Draymond Green should be given less playing time due to him being the weakest out of the 5. Iguodala and Durant should focus on 2 point shots, while Thompson and Curry should focus on 3 point shots. 
+
+# Reference
+
+https://www.basketball-reference.com/teams/GSW/2019.html
+https://www.nba.com/warriors/ 
