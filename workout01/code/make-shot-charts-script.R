@@ -22,7 +22,7 @@ player_data <- read.csv(file = "../data/shots-data.csv", colClasses = column_typ
 
 iguodala_data <- player_data[player_data$name == 'Andre Iguodala', ]
 iguodala_plot <- ggplot(data = iguodala_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Andre Iguodala (2016 season)') + theme_minimal()
-ggsave(filename = "../images/andro-iguodala-shot-chart.pdf", plot = iguodala_plot, width = 6.5, height = 5, units = "in")
+ggsave(filename = "../images/andre-iguodala-shot-chart.pdf", plot = iguodala_plot, width = 6.5, height = 5, units = "in")
 
 green_data <- player_data[player_data$name == 'Draymond Green', ]
 green_plot <- ggplot(data = green_data) + annotation_custom(court_image, -250, 250, -50, 420) + geom_point(aes(x = x, y = y, color = shot_made_flag)) + ylim(-50, 420) + ggtitle('Shot Chart: Draymond Green (2016 season)') + theme_minimal()
