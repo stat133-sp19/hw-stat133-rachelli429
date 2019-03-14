@@ -54,4 +54,5 @@ Data summaries and shot chart visualizations were created for the players. The a
 # Sources
 
 https://www.basketball-reference.com/teams/GSW/2019.html
+
 https://www.nba.com/warriors/
