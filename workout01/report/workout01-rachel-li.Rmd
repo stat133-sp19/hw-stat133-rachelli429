@@ -135,7 +135,7 @@ A number of conclusions can be drawn from this analysis. First, we can create a 
 4. Andre Iguodala
 5. Draymond Green
 
-We can also conclude with recommendations for the future: Draymond Green should be given less playing time due to him being the weakest out of the 5. Iguodala and Durant should focus on 2 point shots, while Thompson and Curry should focus on 3 point shots. 
+We can also conclude with recommendations for the future: Draymond Green should be given less playing time due to him being the weakest out of the 5. Iguodala and Durant should focus on 2 point shots, while Thompson and Curry should focus on 3 point shots.
 
 # Reference
 

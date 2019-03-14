@@ -1,6 +1,6 @@
 ##################################################
 # Title: "Make Shots Data Script"
-# Description: "script to create shot charts"
+# Description: "script to create shots-data.csv to be used in visualization phase
 # Input: "player data sets: andre-iguodala.csv, draymond-green.csv, kevin-durant.csv, klay-thompson.csv, stephen-curry.csv"
 # Output: "shots-data.csv, shots-data-summary.txt"
 ##################################################

@@ -1,7 +1,7 @@
 Description of data variables:
-- `team_name`
-- `game_date`
-- `season`
+- `team_name`: name of NBA team
+- `game_date`: date of game
+- `season`: year 
 - `period`: which period the shot attempt occurred in out of 4 (NBA games are divided into 4 periods of 12 minutes each)
 - `minutes_remaining`: the amount of time in minutes that remained to be played in the period
 - `seconds_remaining`: the amount of time in seconds that remained to be played in the period

@@ -1,8 +1,8 @@
 ##################################################
 # Title: "Make Shots Charts Script"
 # Description: "script to create shot charts"
-# Input: ""
-# Output: ""
+# Input: "nba-court.jpg, shots-data.csv"
+# Output: "shot charts (pdf and png)"
 ##################################################
 
 library(jpeg)

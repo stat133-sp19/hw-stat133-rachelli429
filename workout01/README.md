@@ -1,6 +1,7 @@
 # Workout 1 for Stat 133, Spring 2019
 
 Name: Rachel Li
+
 GSI: Miyabi Ishihara
 
 # Description
@@ -17,38 +18,38 @@ Data summaries and shot chart visualizations were created for the players. The a
 
 # File Structure
 
-workout01/
-  README.md
-  data/
-    andre-iguodala.csv
-    draymond-green.csv
-    kevin-durant.csv
-    klay-thompson.csv
-    stephen-curry.csv
-    shots-data.csv
-    data-dictionary.md
-  code/
-    make-shots-data-script.R
-    make-shot-charts-script.R
-  images/
-    andre-iguodala-shot-chart.pdf
-    draymond-green-shot-chart.pdf
-    gsw-shot-charts.pdf
-    gsw-shot-charts.png
-    kevin-durant-shot-chart.pdf
-    klay-thompson-shot-chart.pdf
-    nba-court.jpg
-    stephen-curry-shot-chart.pdf
-  output/
-    andre-iguodala-summary.txt
-    draymond-green-summary.txt
-    kevin-durant-summary.txt
-    klay-thompson-summary.txt
-    shots-data-summary.txt
-    stephen-curry-summary-txt
-  report/
-    workout01-rachel-li.md
-    workout01-rachel-li.Rmd
+- workout01/
+  - README.md
+  - data/
+    - andre-iguodala.csv
+    - draymond-green.csv
+    - kevin-durant.csv
+    - klay-thompson.csv
+    - stephen-curry.csv
+    - shots-data.csv
+    - data-dictionary.md
+  - code/
+    - make-shots-data-script.R
+    - make-shot-charts-script.R
+  - images/
+    - andre-iguodala-shot-chart.pdf
+    - draymond-green-shot-chart.pdf
+    - gsw-shot-charts.pdf
+    - gsw-shot-charts.png
+    - kevin-durant-shot-chart.pdf
+    - klay-thompson-shot-chart.pdf
+    - nba-court.jpg
+    - stephen-curry-shot-chart.pdf
+  - output/
+    - andre-iguodala-summary.txt
+    - draymond-green-summary.txt
+    - kevin-durant-summary.txt
+    - klay-thompson-summary.txt
+    - shots-data-summary.txt
+    - stephen-curry-summary-txt
+  - report/
+    - workout01-rachel-li.md
+    - workout01-rachel-li.Rmd
 
 # Sources
 
