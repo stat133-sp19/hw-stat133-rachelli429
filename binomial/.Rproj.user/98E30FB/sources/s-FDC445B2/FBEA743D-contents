@@ -1,0 +1,148 @@
+---
+title: "classes and methods"
+author: "Rachel Li"
+date: "4/26/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Classes and Methods
+
+Every object in R has at least one class.
+
+`class(x)` tells you the class of an object
+for a vector, it will give you the type of the data in the vector (e.g. integer, logical, etc.)
+
+```{r}
+class(1:3)
+```
+
+# Common methods
+
+* `print`: prints object on the console
+* `plot`
+* summary
+* `print.summary`
+
+```{r}
+print('hi')
+```
+
+Typing the object name on the console is equivalent to saying `print(obj)`
+
+# Example
+
+Vector of numbers: x = (x1, x2, ... , xn)
+
+Compute *variance*:
+
+1) find n, the # of elements 
+2) calculate the mean, xbar
+3) calculate all the deviations from the mean (xi - xbar)
+4) square the deviations
+5) add all the squared deviations 
+6) divide by n (population variance)
+
+*standard deviation*: square root of variance 
+
+Variance function 
+
+* Generates a table containing the deviations and squared deviations and vector of n, mean, variance, standard deviation
+* `variance(x)`: x is a numeric vector
+* returns a list, `$deviations` and `$values`
+
+```{r}
+variance <- function(x) {
+  n <- length(x)
+  xmean <- mean(x)
+  devs <- x - xmean
+  sqrdevs <- devs ^ 2
+  xvar <- mean(sqrdevs)
+  xsd <- sqrt(xvar)
+  result <- list(
+    deviations = data.frame(
+      x = x,
+      devs = devs, 
+      sqrdevs = sqrdevs),
+    values = c(
+      "n" = n,
+      "mean" = xmean,
+      "var" = xvar,
+      "sd" = xsd)
+  )
+  class(result) = c("variance", "data.frame")
+  return(result)
+}
+```
+
+```{r}
+a <- variance(1:10)
+
+# R calls the corresponding print method for lists
+a
+```
+
+```{r}
+class(a)
+```
+
+# Define your own printing method
+
+* need to give the object a specific class: class "variance"
+* want print method to be just the vector of n, mean, var, sd
+* internally still stored as a list
+
+set the class of the object to be "variance"
+`class(result) = "variance"`
+
+create a print method 
+
+Right now: 
+* when you call `a`, R looks for the class
+* R looks at the catalog of print methods to see if there is a print method of object variance
+* it doesn't find one, so it just calls the generic print method for lists 
+
+```{r}
+# x is an object of class variance 
+# ... argument
+
+print.variance <- function(x, ...) {
+  print(x$values)
+  invisible(x)
+}
+```
+
+`invisible(x)` tells R to avoid recursive printing that could crash your code, return a temporarily invisible object 
+
+next time you call `a` or `print(a)`, you should be able to see just the vector
+
+```{r}
+a
+```
+
+```{r}
+a$deviations
+```
+
+print is already a generic method, only need `@export` for roxygen comments
+
+using devtools: `S3method(print,variance)`
+variance.R script file in toypkg 
+
+# summary 
+
+* requires 2 functions: one to write the summary, one `print.summary.class` where class is the class you're implementing the summary method for 
+* coin-toss package example 
+
+```{r}
+library(ggplot2)
+```
+
+```{r}
+bindis <- data.frame(x = 0:5, prob = 1:6)
+ggplot(bindis, aes(x, prob)) + geom_bar(stat = "identity")
+```
+

@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556228242828.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D5C2AF30",
+    "lastKnownWriteTime" : 1556578575,
+    "last_content_update" : 1556578575302,
+    "path" : "~/Desktop/stat-133/lec demos/R packages.Rmd",
+    "project_path" : null,
+    "properties" : {
+        "cursorPosition" : "265,109",
+        "scrollLine" : "235"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

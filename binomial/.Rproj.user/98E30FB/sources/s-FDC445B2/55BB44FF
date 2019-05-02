@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556511452642.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "55BB44FF",
+    "lastKnownWriteTime" : 1556511482,
+    "last_content_update" : 1556511482072,
+    "path" : "~/Desktop/stat-133/binomial/R/bin_cumulative.R",
+    "project_path" : "R/bin_cumulative.R",
+    "properties" : {
+        "cursorPosition" : "2,0",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

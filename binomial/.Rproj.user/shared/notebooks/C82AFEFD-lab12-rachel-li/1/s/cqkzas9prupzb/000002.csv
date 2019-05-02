@@ -1,0 +1,4 @@
+"0","# href attributes"
+"0","hrefs <- xml_tables %>%"
+"0","  html_nodes(""a"") %>%"
+"0","  html_attr(""href"")"

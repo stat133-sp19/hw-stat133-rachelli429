@@ -1,0 +1,3 @@
+"0","# modify with hrefs[1]"
+"0","bakset <- ""https://www.basketball-reference.com"""
+"0","team_url <- paste0(basket, hrefs[1])"

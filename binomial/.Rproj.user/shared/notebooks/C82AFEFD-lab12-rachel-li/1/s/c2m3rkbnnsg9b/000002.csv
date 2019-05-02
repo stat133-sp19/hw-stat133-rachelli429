@@ -1,0 +1,16 @@
+"0","xml_doc %>%
+  html_nodes(xpath = '//p[@class=""listhead""]') %>%
+  html_text()
+"
+"1","[1]"
+"1"," ""Player Stats""         "
+"1"," ""Other""                "
+"1"," ""2017 Playoffs Summary"""
+"1","
+"
+"1","[4]"
+"1"," ""Player Stats""         "
+"1"," ""Other""                "
+"1"," ""2017 Playoffs Summary"""
+"1","
+"

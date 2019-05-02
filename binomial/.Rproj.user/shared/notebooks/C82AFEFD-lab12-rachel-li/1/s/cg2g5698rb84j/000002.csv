@@ -1,0 +1,8 @@
+"0","# content of h1 nodes"
+"0","xml_doc %>%"
+"0","  html_nodes(""h1"") %>%"
+"0","  html_text()"
+"1","[1]"
+"1"," ""\n\t\t\t\t\n\t\t\t\t2016-17 NBA Season Summary\n\t\t\t\t\n\t\t\t"""
+"1","
+"

@@ -1,0 +1,6 @@
+"0","# x is an object of class variance "
+"0","# ... argument"
+"0","print.variance <- function(x, ...) {"
+"0","  print(x$values)"
+"0","  invisible(x)"
+"0","}"

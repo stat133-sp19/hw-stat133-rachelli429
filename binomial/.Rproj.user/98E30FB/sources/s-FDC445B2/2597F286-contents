@@ -1,0 +1,24 @@
+source(bin_probability)
+library(ggplot2)
+
+#' @title bin_distribution
+#' @description
+#' @param trials number of trials (numeric)
+#' @param prob probability of success on each trial (numeric)
+#' @return data frame with the probability distribution, with columns successes & probability
+#' @export
+#' @examples
+bin_distribution <- function(trials, prob) {
+  success <- 0:trials
+  probability <- bin_probability(0:trials, trials, prob)
+  df <- data.frame(success, probability)
+  class(df) = c("bindis", "data.frame")
+  return(df)
+}
+
+#' @export
+plot.bindis <- function(x, ...) {
+  gg <- ggplot(x, aes(x = success, y = probability)) +
+    geom_bar(stat = "identity")
+  return(gg)
+}

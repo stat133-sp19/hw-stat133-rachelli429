@@ -1,0 +1,4 @@
+"0","tbl1 <- html_table(xml_table1)"
+"0","head(tbl1)"
+"1","[[1]]
+"

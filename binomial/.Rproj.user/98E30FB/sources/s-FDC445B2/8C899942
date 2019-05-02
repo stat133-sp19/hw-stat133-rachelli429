@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556239185121.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1509886373",
+    "id" : "8C899942",
+    "lastKnownWriteTime" : 1556510884,
+    "last_content_update" : 1556510884096,
+    "path" : "~/Desktop/stat-133/binomial/R/bin_probability.R",
+    "project_path" : "R/bin_probability.R",
+    "properties" : {
+        "cursorPosition" : "0,25",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

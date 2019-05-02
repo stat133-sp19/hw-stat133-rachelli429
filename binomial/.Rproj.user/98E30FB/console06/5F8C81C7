@@ -1,0 +1,11 @@
+]0;~/Desktop/stat-133/binomial[?1034hairbears2-10-142-10-181:binomial rachelli$ ls
+DESCRIPTION		R			bos-roster-2017.html	gsw-roster-2017.html
+NAMESPACE		binomial.Rproj		devtools-flow.R		man
+]0;~/Desktop/stat-133/binomialairbears2-10-142-10-181:binomial rachelli$ cd ..
+]0;~/Desktop/stat-133airbears2-10-142-10-181:stat-133 rachelli$ cd ..[K[Klec-d[K[K [K de[K[K[K-demos
+bash: cd: lec-demos: No such file or directory
+]0;~/Desktop/stat-133airbears2-10-142-10-181:stat-133 rachelli$ cd "lec-[K demos"
+]0;~/Desktop/stat-133/lec demosairbears2-10-142-10-181:lec demos rachelli$ cd tokpkg
+bash: cd: tokpkg: No such file or directory
+]0;~/Desktop/stat-133/lec demosairbears2-10-142-10-181:lec demos rachelli$ cd toypkg
+]0;~/Desktop/stat-133/lec demos/toypkgairbears2-10-142-10-181:toypkg rachelli$ 

@@ -1,0 +1,277 @@
+---
+title: "R packages"
+author: "Rachel Li"
+date: "4/22/2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# R Packages
+
+* file structure
+* coding/programming 
+  + functions 
+  + testing functions
+  + thinking from both perspectives: programmer + end user 
+* probability
+
+# Anatomy of an R packages
+
+Minimal & mandatory 
+
+* create directory for package pkg/
+* subdirectories
+  + R: R script files for your functions (one for each), use roxygen comments 
+  + man: manual documentation of package (help documentation when you use ?), .Rd extension (R documentation), similar syntax to LaTeX
+
+2 text files: all uppercase, no extension
+
+* DESCRIPTION: metadata, like business card of package
+  + can have multiple authors, but only one maintainer 
+* NAMESPACE: lists the imports & exports directives
+  + which functions are exported to the end user 
+  + may need to import functions from other packages
+  
+Example
+
+* 2 different packages, "mypkg", "youpkg"
+* both have a function with the same name `fun()` but do completely different things 
+
+`library(mypkg)`
+`library(youpkg)`
+`a = fun()` 
+
+* how does R know which `fun()` to call? 
+* this is when NAMESPACE comes in handy 
+* R might give you a popup menu to select which function to invoke 
+* double colon operator `::` tells R where to find the package 
+
+`a = youpkg::fun()`
+
+* check package: checks that the package looks okay from the POV of CRAN, repository of all packages, v extensive 
+* test package
+
+* build tab: install and restart, check, more
+
+# Roxygen comments
+
+```{r}
+#' @title Some Title
+#' @description Some Description 
+#' @param x numeric vector
+#' @return what value gets returned 
+#' @export 
+#' @examples 
+```
+
+```{r}
+#' @title Average
+#' @description computes arithmetic average
+#' @param x numeric vector
+#' @return average of numbers
+#' @export 
+#' @examples
+#' average(1:5)
+#' average(c(1:4, NA), na.rm = TRUE)
+
+average <- function(x) {
+  sum(x) / length(x)
+}
+```
+
+* functions that contain `@export` will appear in the NAMESPACE file
+
+# R package devtools 
+
+* allows you to build/create very specific parts of the package 
+* need to remove NAMESPACE and let `devtools` create NAMESPACE
+* delete default .Rd files
+
+`devtools::document()` generate documentation of package (.Rd files)
+
+`devtools:check_man()` check that the documentation in the man folder is okay 
+
+`devtools::test()`
+
+`devtools::build_vignettes()` optional but strongly recommended, user-friendly tutorial, not as technical as manual documentation
+
+`devtools::build()` build package, compresses all files into a single file 
+
+`devtools::install()`
+
+Packages --> Install --> Install from Package Archive File 
+
+`devtools::check()` check icon under Build tab in RStudio, must pass checking process to upload your package to CRAN
+
+next time: how do you document methods that you don't want to export
+
+# Auxiliary files
+
+* .Rbulidignore: files that you want R to ignore while building the package
+* title.Rproj
+
+# Package States
+
+* Source: raw version, files and directories
+* Bundled: building command, everything compressed into a single file, can send to other ppl 
+* Binary: depends on operating system (Mac or Windows)
+* Installed
+* In-memory: load package using `library`
+
+# .Rbuildignore
+
+* names of files you want R to ignore while building 
+  + devtools-flow.R
+* can use regular expressions 
+
+# Tests
+
+`devtools::use_test()`
+
+* adds useful infrastructure to a package to help you add tests
+* creates tests directory 
+  + testthat subdirectory that contains R scripts for all your tests
+  + testthat.R script file 
+* modifies DESCRIPTION file
+  + Suggests: testthat
+  
+`testthat` package 
+
+`devtools::test()`
+
+# testthat.R
+
+* loads testthat package and your package using `library()`
+* runs `test_check()` on your package: runs everything inside the `testthat` folder for your package
+
+# testthat
+
+* group a set of expectations, give it some context name 
+
+# Tutorial Vignette 
+
+`devtools::use_vignette(name = name)`
+
+* devtools has a family of `use` functions: allows you to add important ingredients for the first time you want to add something
+
+* creates vignettes folder
+* .gitignore file 
+* DESCRIPTION file: suggests knitr, rmarkdown; VignetteBuilder: knitr
+
+`devtools::build_vignettes()`
+
+* creates doc folder with .R, .Rmd, and .html files of the vignette
+
+# Recap
+
+Creating a package:
+* manually
+* RStudio project
+
+File structure
+* directory for the package: pkgname 
+* mandatory ingredients
+  + DESCRIPTION: metadata
+  + NAMESPACE: export & import directives (list of functions that will be exported/made available for the users + other packages/functions your functions depends on)
+  + subdirectory called R: R scripts (.R, not .Rmd), put related functions in a single script file 
+  + subdirectory called man: .Rd files, manual documentation, functions that the user will be invoking
+* strongly recommended
+  + subdirectory for tests
+  + vignettes: user-friendly tutorials, show the users what functions are in your package and how to use them
+* text files that might be there
+  + pkgname.Rproj
+  + .Rbuildignore
+  + .Rhistory 
+  + README.md for github repo 
+  + .gitignore
+* devtools-flow.R: list of functions to build the package
+
+# Handling package dependencies
+
+Example
+* you're making a plot method for a class of objects
+* `plot.variance`
+* want to use `ggplot2` to create plot
+* how to document things to load the package w/o having to manually write `library(ggplot2)`
+* also need one function from `stringr`
+
+* in R subdirectory, incldue another R script file `pkgname-package.R`
+* `@name` refers to an .Rd file in your main directory called `pkgname.Rd`
+* binomial-package.R
+
+```{r}
+#' @import ggplot2
+#' @importFrom stringr str_c 
+#' @importFrom ABC abc xyz efg
+#' @name pkgname 
+#' @docType package 
+NULL 
+```
+
+# Packaging flow
+
+Using functions from `devtools`
+
+The first time you use devtools:
+
+* remove NAMESPACE, let `devtools::document()` take care of it 
+* remove all .Rd files in the `man` directory 
+
+R console
+
+* `devtools::document()`: calls roxygen, which creates `NAMESPACE` for you and populates the `man` directory
+* only need to do this once! 
+
+* after that, don't manually modify `NAMESPACE` or .Rd files
+* devtools might also automatically update DESCRIPTION
+
+* `devtools::document()`
+* `devtools::check_man()`
+* `devtools::build()`: bundle, all the content from all the files gets compressed into a single file
+  + pkgname_0.1.0.tar.gz (version)
+* ready to be installed and shared
+* install and run the package locally to make sure it works
+
+# Sharing 
+
+* build the `tar.gz` file (tarball), make it accessible to be downloaded by others
+  + users will have to manually install 
+* github
+  + put the package in its own github repo
+  + must be a public repository 
+  + `devtools::install_github("username/pkgname")`
+* put your package on CRAN: comprehensive repository network 
+  + packages you think could be useful for a certain type of community
+  + already tested, major bugs are taken care of, very stable 
+  + everything must be neat and correct
+  + formal and strict checking process 
+  + NOT recommended for workout 3! 
+  + `devtools::check()`
+  
+# DESCRIPTION file
+
+* license field
+* most use GPL-2
+* nowadays, recommended to specify GPL-3 (more up-to-date)
+
+choosealicense.com 
+opensource.org
+
+do NOT use a Creative Commons license: good for media (text, narrative, images, audio, video) but not source code
+
+* open source license means that anyone else can look at the code, can modify/adapt the source code and come up with a new version 
+* if you modify it, you must release it under the same conditions that the package you modified was released 
+
+# Workout 3
+
+R scripts for
+* checker functions
+* binomial probability functions
+* auxiliary/secondary functions for a binomial random object 
+
+* import ggplot2 using `binomial-package.R`
+
+write the small functions, if you want a more complex one call the smaller functions to do it (listen around 3:00)

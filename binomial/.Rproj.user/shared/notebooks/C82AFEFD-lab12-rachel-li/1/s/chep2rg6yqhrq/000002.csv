@@ -1,0 +1,14 @@
+"0","library(XML)"
+"2","package ‘XML’ was built under R version 3.5.2"
+"0","library(xml2)"
+"0","library(rvest)"
+"2","
+Attaching package: ‘rvest’
+
+"
+"2","The following object is masked from ‘package:XML’:
+
+    xml
+
+"
+"0","library(magrittr)"

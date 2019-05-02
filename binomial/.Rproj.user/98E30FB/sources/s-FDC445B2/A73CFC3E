@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1556229532234.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "A73CFC3E",
+    "lastKnownWriteTime" : 1556229776,
+    "last_content_update" : 1556229776511,
+    "path" : "~/Desktop/stat-133/binomial/R/checker-functions.R",
+    "project_path" : "R/checker-functions.R",
+    "properties" : {
+        "cursorPosition" : "17,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,7 @@
+"0","df <- data.frame()"
+"0","for (i in 1:length(teams)) {"
+"0","  team_url <- paste0(basket, hrefs[i])"
+"0","  tbl <- as.data.frame(html_table(read_html(team_url)))"
+"0","  tbl$team <- teams[i]"
+"0","  df <- rbind(df, tbl)"
+"0","}"

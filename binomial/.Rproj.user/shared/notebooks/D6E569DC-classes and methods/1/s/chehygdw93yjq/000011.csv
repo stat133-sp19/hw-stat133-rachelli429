@@ -1,0 +1,2 @@
+"0","bindis <- data.frame(x = 0:5, prob = 1:6)"
+"0","ggplot(bindis, aes(x, prob)) + geom_bar(stat = ""identity"")"

@@ -1,0 +1,2 @@
+"0","nba_html <- paste0(basket, ""/leagues/NBA_2017.html"")"
+"0","xml_doc <- read_html(nba_html)"

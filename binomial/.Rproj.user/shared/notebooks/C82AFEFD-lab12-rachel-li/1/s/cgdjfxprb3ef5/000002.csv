@@ -1,0 +1,8 @@
+"0","# content of button nodes"
+"0","xml_doc %>%"
+"0","  html_nodes(""button"") %>%"
+"0","  html_text()"
+"1","[1]"
+"1"," ""More league info"""
+"1","
+"

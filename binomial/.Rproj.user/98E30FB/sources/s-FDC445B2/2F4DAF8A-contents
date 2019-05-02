@@ -1,0 +1,41 @@
+#' @title variance
+#' @description variance function
+#' @param x numeric vector
+#' @return an object of class variance, basically
+#' a list with deviations and values
+#' @export
+#' @examples
+#' a = variance(1:10)
+#' a
+variance <- function(x) {
+  n <- length(x)
+  xmean <- mean(x)
+  devs <- x - xmean
+  sqrdevs <- devs ^ 2
+  xvar <- mean(sqrdevs)
+  xsd <- sqrt(xvar)
+
+  results <- list(
+    deviations = data.frame(
+      x = x,
+      devs = devs,
+      sqrdevs = sqrdevs
+    ),
+    values = c(
+      "n" = n,
+      "mean" = xmean,
+      "var" = xvar,
+      "sd" = xsd
+    )
+  )
+  class(results) = "variance"
+  return(results)
+}
+
+variance(1:10)
+
+#' @export
+print.variance <- function(x, ...) {
+  print(x$values, digits = 3)
+  invisible(x)
+}
