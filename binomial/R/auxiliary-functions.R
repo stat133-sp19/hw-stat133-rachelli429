@@ -10,7 +10,12 @@ aux_variance <- function(trials, prob) {
 
 # private function to compute mode
 aux_mode <- function(trials, prob) {
-  as.integer(trials * prob + prob)
+  m <- trials * prob + prob
+  if (as.integer(m) == m) {
+    return(c(m, m - 1))
+  } else {
+    return(as.integer(m))
+  }
 }
 
 # private function to compute skewness

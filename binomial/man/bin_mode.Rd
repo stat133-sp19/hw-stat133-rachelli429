@@ -19,4 +19,5 @@ computes mode of binomial distribution
 }
 \examples{
 bin_mode(10, 0.3)
+bin_mode(7, 0.5)
 }

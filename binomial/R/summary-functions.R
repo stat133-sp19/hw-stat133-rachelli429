@@ -34,6 +34,7 @@ bin_variance <- function(trials, prob) {
 #' @export
 #' @examples
 #' bin_mode(10, 0.3)
+#' bin_mode(7, 0.5)
 bin_mode <- function(trials, prob) {
   check_trials(trials)
   check_prob(prob)

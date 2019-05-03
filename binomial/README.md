@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 `binomial` is an R package that provides functions to perform various calculations related to the binomial distribution.
 
-Binomial Functions:
+**Binomial Functions**:
 
 * `bin_choose()` calculates the number of combinations in which *k* successes can occur in *n* trials
 * `bin_probability()` computes the probability of getting *k* successes in *n* trials with probability of success *prob*
@@ -26,13 +26,13 @@ Binomial Functions:
   + `summary.binvar()` method
   + `print.summary.binvar()` method
 
-Summary Measures: 
+**Summary Measures**: 
 
 * `bin_mean()`
 * `bin_variance()`
 * `bin_mode()`
-* `bin_skewness()`
-* `bin_kurtosis()`
+* `bin_skewness()`: computes measure of the asymmetry of the probability distribution of a random variable about its mean
+* `bin_kurtosis()`: computes measure of the "tailedness" of the probability distribution of a random variable 
 
 # Motivation 
 
@@ -55,6 +55,8 @@ devtools::install_github("stat133-sp19/hw-stat133-rachelli429/tree/master/binomi
 ```{r}
 library(binomial)
 ```
+
+**Binomial Functions**:
 
 ```{r}
 # number of combinations of getting 2 successes in 5 trials
@@ -116,6 +118,8 @@ summary(bin1)
 #> - skewness: 0.2760262
 #> - kurtosis: -0.1238095
 ```
+
+**Summary Measures**:
 
 ```{r}
 #> trials: 10

@@ -48,9 +48,9 @@ bin_probability <- function(success, trials, prob) {
 bin_distribution <- function(trials, prob) {
   success <- 0:trials
   probability <- bin_probability(0:trials, trials, prob)
-  df <- data.frame(success, probability)
-  class(df) = c("bindis", "data.frame")
-  return(df)
+  result <- data.frame(success, probability)
+  class(result) = c("bindis", "data.frame")
+  return(result)
 }
 
 #' @export
@@ -82,7 +82,8 @@ bin_cumulative <- function(trials, prob) {
 
 #' @export
 plot.bincum <- function(x, ...) {
-  plot(x$cumulative, type = "o",
+  plot(x$success, x$cumulative,
+       type = "o",
        main = "plot of cumulative distribution",
        xlab = "successes", ylab = "probability",)
 }

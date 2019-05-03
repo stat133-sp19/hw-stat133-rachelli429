@@ -16,6 +16,7 @@ test_that("check aux_mode works", {
   expect_equal(aux_mode(10, 0.3), 3)
   expect_type(aux_mode(10, 0.3), "integer")
   expect_length(aux_mode(10, 0.3), 1)
+  expect_length(aux_mode(7, 0.5), 2)
 })
 
 test_that("check aux_skewness works", {

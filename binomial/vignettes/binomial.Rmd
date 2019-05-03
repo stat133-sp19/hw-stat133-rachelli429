@@ -1,5 +1,7 @@
 ---
 title: "Getting started with binomial"
+author: "Rachel Li"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{binomial}
@@ -22,13 +24,13 @@ library(binomial)
 
 The package `binomial` can be used to perform various calculations on the Binomial Distribution. The binomial distribution is a theoretical probability model used to calculate probabilities about the number of successes in a fixed number of random trials performed under identical conditions, assuming a constant probability of success on each trial. 
 
-{insert formula}
+$$Pr(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$$
 
-* *n* is the number of fixed trials
-* *p* is the probability of success on each trial
-* *1-p* is the probability of failure on each trial
-* *k* is a variable that represents the number of successes out of n trials
-* (n k) is the number of combinations in which *k* successes can occur in *n* trials
+* *n* is the number of fixed trials ($n \geq 0$)
+* *p* is the probability of success on each trial ($0 \leq p \leq 1$)
+* *1-p* is the probability of failure on each trial 
+* *k* is the number of successes out of n trials ($0 \leq k \leq n$)
+* $\binom{n}{k}$ is the number of combinations in which *k* successes can occur in *n* trials
 
 # Example: Tossing a Coin 
 
@@ -93,13 +95,14 @@ The summary measures that can be computed are:
 * mean
 * variance
 * mode
-* skewness
-* kurtosis
+* skewness: measure of the asymmetry of a random variable about its mean
+* kurtosis: measure of the "tailedness" of the probability distribution of a random variable 
 
 ```{r}
 bin_mean(10, 0.3)
 bin_variance(10, 0.3)
 bin_mode(10, 0.3)
+bin_mode(7, 0.5)
 bin_skewness(10, 0.3)
 bin_kurtosis(10, 0.3)
 ```
