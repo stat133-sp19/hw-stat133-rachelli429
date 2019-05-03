@@ -1,6 +1,3 @@
-#source("checker-functions.R")
-#source("auxiliary-functions.R")
-
 #' @title bin_choose
 #' @description calculates the number of combinations in which k successes can occur in n trials
 #' @param n number of trials (numeric)
