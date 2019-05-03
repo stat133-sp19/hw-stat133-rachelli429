@@ -1,10 +1,10 @@
 Package: binomial
 Type: Package
-Title: Calculations for Binomial Distribution
+Title: Binomial Distribution
 Version: 0.1.0
 Author: Rachel Li
 Maintainer: Rachel Li <rachelrli@berkeley.edu>
-Description: This package can be used to perform various calculations on the Binomial Distribution. The binomial distribution is a theoretical probability model used to calculate probabilities about the number of successes in a fixed number of random trials performed under identical conditions, assuming a constant probability of success on each trial. 
+Description: Provides Functions to perform various calculations on the Binomial Distribution.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true

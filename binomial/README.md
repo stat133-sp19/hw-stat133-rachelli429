@@ -47,7 +47,7 @@ Install the development version from GitHub via the package `"devtools"`:
 install.packages("devtools")
 
 # install "binomial"
-devtools::install_github("stat133-sp19/hw-stat133-rachelli429/tree/master/binomial", build_vignettes = TRUE)
+devtools::install_github("stat133-sp19/hw-stat133-rachelli429/binomial", build_vignettes = TRUE)
 ```
 
 # Usage 
@@ -133,6 +133,9 @@ bin_variance(10, 0.3)
 
 bin_mode(10, 0.3)
 #> 3
+
+bin_mode(7, 0.5)
+#> 4 3
 
 bin_skewness(10, 0.3)
 #> 0.2760262
