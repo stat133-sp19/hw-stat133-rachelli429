@@ -48,7 +48,7 @@ The function `bin_probability()` calculates the probability of getting *k* succe
 bin_probability(success = 2, trials = 5, prob = 0.5)
 ```
 
-You can create a **binomial probability distribution** by calculating this probability for all possible values for the number of successes. The output is an object of class `bindis` and `data.frame`. THe data frame has `success` in the first column and `probability` in the second column.
+You can create a **binomial probability distribution** by calculating this probability for all possible values for the number of successes. The output is an object of class `bindis` and `data.frame`. The data frame has `success` in the first column and `probability` in the second column.
 
 ```{r}
 bin_distribution(trials = 5, prob = 0.5)
